@@ -6,6 +6,15 @@ import Main from './Components/Main/Main';
 import Footer from './Components/Footer/Footer';
 
 function App() {
+  useEffect(() => {
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+
+    // Example: Setting up a custom button in Telegram
+    tg.MainButton.setText("Click Me!");
+    tg.MainButton.show();
+  }, []);
+
   return (
     <>
       <Navbar />
