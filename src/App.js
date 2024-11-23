@@ -7,12 +7,13 @@ import Footer from './Components/Footer/Footer';
 
 function App() {
   useEffect(() => {
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-
-    // Example: Setting up a custom button in Telegram
-    tg.MainButton.setText("Click Me!");
-    tg.MainButton.show();
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
+      tg.ready();
+      console.log("Telegram WebApp initialized.");
+    } else {
+      console.error("Telegram WebApp is not available.");
+    }
   }, []);
 
   return (
